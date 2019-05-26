@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="facivon.ico">
+
+    <title>Facebook like chat</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+
+    <script src="/js/script.js"></script>
+
+    <style type="text/css">
+        #audio {
+            display: none;
+        }
+
+        .welcome {
+            color: #fff;
+        }
+
+        .login_page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: rgb(113, 183, 133);
+            z-index: 10;
+        }
+
+        .login_page button {
+            border: 1px solid #ccc;
+            background-color: rgb(48, 131, 26);
+            color: white;
+            padding: 5px 21px;
+            display: inline-block;
+        }
+
+        .login_page input {
+            border: 1px solid #ccc;
+            padding: 5px 0px;
+            border-radius: 2px;
+        }
+
+        .login_page .form {
+            width: 415px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .btn {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #809FFF;
+            position: relative;
+        }
+
+        .btn:hover {
+            top: 2px;
+            cursor: pointer;
+        }
+
+        .msg_box_sample {
+            display: none;
+        }
+
+        .msg_body .time {
+            float: right;
+            color: #ADADAD;
+            font-size: 87%;
+        }
+
+        .usernameInput {
+            width: 200px;
+        }
+
+        .msg_body img {
+            max-width: 100%;
+        }
+
+        .msg_body .emoticon {
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login_page">
+        <div class="form">
+            <h3 class="title">What's your nickname?</h3>
+            <input class="usernameInput" type="text" maxlength="30" />
+            <!-- <button>Submit</button> -->
+        </div>
+    </div>
+    <div class="content hide">
+        <div class='welcome'></div>
+        <div>
+            <button class="btn2 btn-offline">Offline</button>
+            <button class="btn2 btn-online">Online</button>
+        </div>
+        <div class="chat_box">
+            <div class="chat_head"> Chat Box</div>
+            <div class="chat_body">
+            </div>
+        </div>
+        <div class="logout">
+            <button class="btn">Logout</button>
+        </div>
+        <div class="test">
+        </div>
+        <div class="msg_box_sample show" style="" id="">
+            <div class="msg_head">
+                <img src="/img/car.jpg" alt="" style="height: 50px;" />
+                <span class="msg_username" style="position: relative; top: -10px; right: -12px;">{user_name}</span>
+                <div class="close"><i class="fa fa-close"></i></div>
+            </div>
+            <div class="msg_wrap show">
+                <div class="msg_body">
+                    <div class="msg_push"></div>
+                </div>
+                <div class="msg_footer"><textarea class="msg_input"></textarea></div>
+            </div>
+        </div>
+        <div class="list_msg_box"></div>
+    </div>
+    <div>
+        <audio controls id="audio">
+            <source src="/files/Sosumi.wav" type="audio/wav">
+        </audio>
+    </div>
+</body>
+
+</html>
